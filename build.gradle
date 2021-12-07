@@ -1,6 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.1'	// 스프링 부트 버전 명시
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'	// 스프링 부트의 의존성 관리
+	// 스프링 부트 버전 명시
+	id 'org.springframework.boot' version '2.6.1'
+	// 스프링 부트의 의존성 관리
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
 
@@ -14,9 +16,12 @@ configurations {
 	}
 }
 
-repositories {	// 의존성들을 어떤 원격 저장소에서 받을지 결정
-	mavenCentral()	// 저장소, 최근 jcenter 많이 사용 하여 추가
-	jcenter()	// 추가
+// 의존성들을 어떤 원격 저장소에서 받을지 결정
+repositories {
+	// 저장소, 최근 jcenter 많이 사용 하여 추가
+	mavenCentral()
+	// 추가
+	jcenter()
 }
 
 dependencies {
