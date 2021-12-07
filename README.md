@@ -5,3 +5,4 @@ Spring_Boot_Board_v_1
 - Gradle
 - Spring Boot 2.6.1
 - JPA
+- Lombok
