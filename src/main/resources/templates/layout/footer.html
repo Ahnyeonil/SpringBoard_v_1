@@ -1,0 +1,32 @@
+<!-- Tyhmeleaf - fragment, replace 문법을 이용하여 페이지 삽입 가능 -->
+<!-- fragment 템플릿
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <body>
+
+    <div th:fragment="copy">
+      &copy; 2011 The Good Thymes Virtual Grocery
+    </div>
+
+  </body>
+
+</html>
+-->
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body class="d-flex flex-column h-100">
+
+<footer class="footer mt-auto py-3 bg-light" th:fragment="footer">
+    <div class="container">
+        <span class="text-muted">© ahn</span>
+    </div>
+</footer>
+
+</body>
+
+</html>
