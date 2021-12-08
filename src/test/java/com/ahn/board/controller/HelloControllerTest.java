@@ -9,6 +9,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.hamcrest.Matchers.is;
 
 // 테스트를 진행할 때 JUnit에 내장된 실행자 외에 다른 실행자를 실행
 @ExtendWith(SpringExtension.class)
@@ -23,7 +24,7 @@ public class HelloControllerTest {
 	
 	@Test
 	public void hello_Test() throws Exception {
-		String hello = "hello Spring Boot!";
+		String hello = "hello, Spring Boot!";
 		
 		mvc.perform(get("/hello"))
 				// .andExpect(status().isOk()) - HTTP Header의 상태코드
@@ -31,6 +32,20 @@ public class HelloControllerTest {
 				// .andExpect(content().string(hello)) - mvc.perform의 결과를 알려줌
 				.andExpect(content().string(hello));
 
+	}
+	
+	@Test
+	public void helloDto_Test() throws Exception {
+		String name = "superman";
+		String nickname = "hero";
+		
+		mvc.perform(
+			get("/hello/dto")
+				.param("name",  name)
+				.param("nickname", nickname))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.name", is(name)))
+			.andExpect(jsonPath("$.nickname", is(nickname)));
 	}
 
 }
