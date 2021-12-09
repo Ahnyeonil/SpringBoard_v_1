@@ -4,7 +4,12 @@ let index = {
 	init : function() {
 		//this를 바인딩하기 위해 화샬표 함수 사용
 		$("#btn-save").on("click", () => {
-			this.save();
+			let form = document.querySelector("#needs-validation");
+			if(form.checkValidity() == false){
+				console.log("회원가입")
+			} else {
+				this.save();
+			}
 		});
 	},
 	
@@ -21,7 +26,7 @@ let index = {
 			// Http method
 			type : "POST",
 			// API 주소
-			url : "/api/v1/user",
+			url : "/auth/api/v1/user",
 			// JSON으로 변환
 			data : JSON.stringify(data),
 			// MIME 타입

@@ -29,7 +29,7 @@ public class User {
 	
 	// 해당 필드가 컬럼이라는 것을 말함
 	// 다양한 속성 가능
-	@Column(nullable = false, length = 30)
+	@Column(nullable = false, length = 30, unique = true)
 	private String username;
 	
 	@Column(nullable = false, length = 100)
@@ -38,7 +38,7 @@ public class User {
 	@Column(nullable = false, length = 50)
 	private String email;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = false, length = 20)
 	private String nickname;
 	
 	// JPA로 DB에 저장할 때 Enum 값을 어떤 형태로 저장할지 결정
@@ -46,4 +46,8 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private Role role;
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }

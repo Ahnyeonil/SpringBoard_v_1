@@ -44,6 +44,8 @@ dependencies {
 	// jsp는 스프링 부트가 지원하지 않는다.
 	// static 폴더는 정적 파일(html, css, js 등등)들을 두는 곳이다.
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	// 시큐리티 의존성추가
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 }
 
 test {

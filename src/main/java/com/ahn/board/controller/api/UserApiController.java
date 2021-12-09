@@ -13,7 +13,7 @@ public class UserApiController {
 
     private final UserService userService;
 
-    @PostMapping("/api/v1/user")
+    @PostMapping("/auth/api/v1/user")
     public Long save(@RequestBody UserJoinRequestDto userJoinRequestDto) {
         return userService.save(userJoinRequestDto.toEntity());
     }
