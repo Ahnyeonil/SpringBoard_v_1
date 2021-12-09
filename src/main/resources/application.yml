@@ -18,3 +18,7 @@ spring:
     properties:
       # sql을 포맷팅하여 로그로 정리된 sql을 노출함
       hibernate.format_sql : true
+  # Thymeleaf 파일 수정 후 저장하면 브라우저에 변경된 결과를 확인하기 위한 설정
+  # 개발시 false, 운영시 true
+  thymeleaf:
+    cache: false
