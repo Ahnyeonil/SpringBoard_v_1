@@ -25,7 +25,7 @@ public class UserJoinRequestDto {
     			.password(password)
     			.email(email)
     			.nickname(nickname)
-    			.role(role)
+    			.role(Role.USER)
     			.build();
     }
 }

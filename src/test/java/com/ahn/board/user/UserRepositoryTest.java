@@ -32,8 +32,8 @@ public class UserRepositoryTest {
 	@Test
 	public void userJoinTest() {
 		// given
-		String username = "test";
-		String nickname = "nickname";
+		String username = "superman";
+		String nickname = "hero";
 		
 		// insert 혹은 update 쿼리가 실행
 		userRepository.save(User.builder()

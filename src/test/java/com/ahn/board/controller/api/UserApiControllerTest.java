@@ -41,8 +41,8 @@ public class UserApiControllerTest {
     @Test
     public void userJoinTest() throws Exception {
         //given
-        String username = "test";
-        String nickname = "babo";
+        String username = "superman";
+        String nickname = "hero";
 
         UserJoinRequestDto userSaveRequestDto = UserJoinRequestDto.builder()
                 .username(username)
