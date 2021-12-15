@@ -1,5 +1,7 @@
 package com.ahn.board.domain.user;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 // DB 계층 접근자
@@ -8,4 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 // JpaRepository<Entity 타입, PK 타입>
 public interface UserRepository extends JpaRepository<User, Long> {
 
+	Optional<User> findByUsername(String username);
 }

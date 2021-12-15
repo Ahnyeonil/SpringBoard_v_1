@@ -1,9 +1,13 @@
 package com.ahn.board.controller;
 
+import com.ahn.board.config.SecurityConfig;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.security.*;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -14,7 +18,10 @@ import static org.hamcrest.Matchers.is;
 // 테스트를 진행할 때 JUnit에 내장된 실행자 외에 다른 실행자를 실행
 @ExtendWith(SpringExtension.class)
 // Web에 집중할 수 있는 이노테이션
-@WebMvcTest()
+@WebMvcTest(controllers = HelloController.class,
+excludeFilters = {
+    @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+})
 public class HelloControllerTest {
 
 	// 스프링이 관리하는 빈을 주입 받는다.

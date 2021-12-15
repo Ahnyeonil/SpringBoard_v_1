@@ -28,8 +28,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="../static/sticky-footer-navbar.css" rel="stylesheet">
-    <link rel="stylesheet" href="../static/style.css">
-    <link rel="stylesheet" href="../static/user_join.css">
+    <link href="../static/style.css" rel="stylesheet">
+    <link href="../static/user_join.css" rel="stylesheet">
     <title th:text="${title}">게시판</title>
 
 </head>
@@ -46,11 +46,20 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="/auth/user/login">로그인</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/auth/user/join">회원가입</a>
-                        </li>
+	                        <a sec:authorize="isAnonymous()" class="nav-link" href="/auth/user/login">로그인</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a sec:authorize="isAnonymous()" class="nav-link" href="/auth/user/join">회원가입</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a sec:authorize="isAuthenticated()" class="nav-link" href="/board/save">글쓰기</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a sec:authorize="isAuthenticated()" class="nav-link" href="/user/update">회원정보</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a sec:authorize="isAuthenticated()" class="nav-link" href="/logout">로그아웃</a>
+	                    </li>
                     </ul>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

@@ -10,4 +10,9 @@ public class UserController {
 	public String userJoin() {
 		return "layout/user/user_join";
 	}
+	
+	@GetMapping("/auth/user/login")
+	public String userLogin() {
+		return "layout/user/user_login";
+	}
 }
