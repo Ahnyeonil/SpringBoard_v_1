@@ -6,7 +6,7 @@ let index = {
 		$("#btn-save").on("click", () => {
 			let form = document.querySelector("#needs-validation");
 			if(form.checkValidity() == false){
-				console.log("회원가입")
+				console.log("회원가입 실패")
 			} else {
 				this.save();
 			}

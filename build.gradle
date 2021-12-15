@@ -40,7 +40,7 @@ dependencies {
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	// JPA 의존성 다운
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	// Thymelead 같은 템플릿 엔진은resources 폴더에 templates 폴더 안에 생성된다.
+	// Thymeleaf 같은 템플릿 엔진은resources 폴더에 templates 폴더 안에 생성된다.
 	// jsp는 스프링 부트가 지원하지 않는다.
 	// static 폴더는 정적 파일(html, css, js 등등)들을 두는 곳이다.
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
