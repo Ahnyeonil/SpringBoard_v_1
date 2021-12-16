@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="layout/header :: head ('로그인')" profile="http://www.w3.org/2005/10/profile">
-	<link rel="shortcut icon" href="#">
-</head>
+<head th:replace="layout/header :: head ('로그인')"></head>
 
 <body class="text-center d-flex flex-column h-100">
 <header th:replace="layout/header :: header"></header>
@@ -31,7 +29,7 @@
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
             </div>
-            <button class="w-100 btn btn-lg btn-success" id="btn-login">로그인</button>
+            <button class="w-100 btn btn-lg btn-success" id="btn-save">로그인</button>
         </form>
 
     </div>

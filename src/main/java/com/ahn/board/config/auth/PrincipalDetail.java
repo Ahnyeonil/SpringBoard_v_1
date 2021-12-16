@@ -5,7 +5,7 @@ import com.ahn.board.domain.user.User;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails; 
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -61,5 +61,24 @@ public class PrincipalDetail implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+    
+    //사용자 이메일
+    public String getEmail() {
+    	return user.getEmail();
+    }
+    
+    //사용자 닉네임
+    public String getNickname() {
+    	return user.getNickname();
+    }
+    
+    // 사용자 pk
+    public Long getId() {
+    	return user.getId();
+    }
+    
+    public void setUser(User userEntity) {
+    	user.update(userEntity.getPassword(), user.getEmail(), user.getNickname());
     }
 }

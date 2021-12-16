@@ -47,11 +47,31 @@ public class User {
 	@Column(nullable = false)
 	private Role role;
 	
+	/**
+	 * @param password
+	 * 비밀번호 암호화 메소드
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	
+	/**
+	 * @return
+	 * 권한 메소드
+	 */
 	public String getRoleKey() {
         return this.role.getKey();
     }
+	
+	/**
+	 * @param password
+	 * @param email
+	 * @param nickname
+	 * 회원수정 메소드
+	 */
+	public void update(String password, String email, String nickname) {
+		this.password = password;
+		this.email = email;
+		this.nickname = nickname;
+	}
 }

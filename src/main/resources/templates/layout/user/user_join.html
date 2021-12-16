@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" class="h-100" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="layout/header :: head ('회원가입')" profile="http://www.w3.org/2005/10/profile">
-	<link rel="shortcut icon" href="#">
-</head>
+<head th:replace="layout/header :: head ('회원가입')"></head>
 
 <body class="text-center d-flex flex-column h-100">
 <header th:replace="layout/header :: header"></header>
@@ -48,13 +46,13 @@
             </div>
             <div class="form-floating m-3">
                 <input type="text" class="form-control" id="nickname" placeholder="닉네임을 입력하세요." required
-                       minlength="4" size="20">
+                       minlength="2" size="20">
                 <label for="nickname">닉네임</label>
                 <div class="valid-feedback">
                     nickname_success!
                 </div>
                 <div class="invalid-feedback">`
-					닉네임은 4자 이상 입력해야 합니다.
+					닉네임은 2자 이상 입력해야 합니다.
                 </div>
             </div>
         </form>
