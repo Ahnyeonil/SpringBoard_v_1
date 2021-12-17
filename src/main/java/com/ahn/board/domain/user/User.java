@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import com.ahn.board.domain.BaseTimeEntity;
+
 @Getter
 // 어느 필드에 어떤 값을 채워야하는지 명확히 알 수 있기 때문에 실수가 나지 않는다.
 @Builder
@@ -17,7 +19,7 @@ import javax.persistence.*;
 @Entity
 
 // Setter가 없는 이유 - 해당 클래스의 인스턴스가 언제 어디서 변해야 하는지 코드상으로 확인이 불가함
-public class User {
+public class User extends BaseTimeEntity {
 
 	// Primary Key
 	@Id

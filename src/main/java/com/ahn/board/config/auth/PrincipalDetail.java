@@ -81,4 +81,8 @@ public class PrincipalDetail implements UserDetails {
     public void setUser(User userEntity) {
     	user.update(userEntity.getPassword(), user.getEmail(), user.getNickname());
     }
+
+	public User getUser() {
+		return user;
+	}
 }

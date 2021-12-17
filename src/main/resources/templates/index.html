@@ -10,36 +10,18 @@
 	<main class="flex-shrink-0">
 	    <div class="container">
 	        <div class="p-2"></div>
-	        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-	            <div class="col p-4 d-flex flex-column position-static">
-	                	<h3 class="mb-0 title" style="padding-bottom: 10px;">
-	                		<a href="#" class=".a-title">제목</a>
-	                	</h3>
-	                <p class="card-text mb-auto">내용
-	                </p>
-	                <div class="mb-1 text-muted" style="padding-top: 15px;">날짜</div>
-	            </div>
-	        </div>
-	
-	        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+	        <!-- IndexController에서 Model에 담은 데이터 반복 -->
+	        <div th:each="board : ${boards}" class="row g-0 border rounded
+	        	overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 	            <div class="col p-4 d-flex flex-column position-static">
 	                <h3 class="mb-0 title" style="padding-bottom: 10px;">
-	                	<a href="#" class=".a-title">제목</a>
+	                	<a th:href="@{/board/{id}(id=${board.id})}" class="a-title" th:text="${board.title}"></a>
 	                </h3>
-	                <p class="card-text mb-auto">내용
-	                </p>
-	                <div class="mb-1 text-muted" style="padding-top: 15px;">날짜</div>
-	            </div>
-	        </div>
-	
-	        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-	            <div class="col p-4 d-flex flex-column position-static">
-	                <h3 class="mb-0 title" style="padding-bottom: 10px;">
-	                	<a href="#" class=".a-title">제목</a>
-	                </h3>
-	                <p class="card-text mb-auto">내용
-	                </p>
-	                <div class="mb-1 text-muted" style="padding-top: 15px;">날짜</div>
+	                <div class="card-text mb-auto" th:text="${board.content}">
+	                </div>
+	                <div class="mb-1 text-muted" style="padding-top: 15px;"
+	                th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}">
+	                </div>
 	            </div>
 	        </div>
 	    </div>
