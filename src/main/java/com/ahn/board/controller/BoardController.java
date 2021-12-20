@@ -7,10 +7,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.ahn.board.service.BoardService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class BoardController {
 	
-	private BoardService boardService;
+	private final BoardService boardService;
 	
 	/**
 	 * @return
@@ -32,7 +35,7 @@ public class BoardController {
 	@GetMapping("/board/{id}")
 	public String detail(@PathVariable Long id, Model model) {
 		model.addAttribute("board", boardService.detail(id));
-		return "layout/board/board_detail";
+	    return "layout/board/board_detail";
 	}
 	
 	/**
