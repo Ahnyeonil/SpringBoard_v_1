@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,8 +49,10 @@ public class BoardService {
 	 * 글 목록
 	 */
 	//JPA 의 findAll() 메소드를 사용하면 테이블의 raw 데이터를 모두 조회
-	public List<Board> findAll() {
-		return boardRepository.findAll();
+	//JPA 에서는 Pageable 인터페이스를 사용함
+	@Transactional(readOnly = true)
+	public Page<Board> findByTitleContainingOrContentContaining(String title, String content, Pageable pageable) {
+		return boardRepository.findByTitleContainingOrContentContaining(title, content, pageable);
 	}
 
 	/**
@@ -73,5 +77,14 @@ public class BoardService {
 				-> new IllegalArgumentException("해당 id가 없습니다. id=" + id));
 		board.update(boardUpdateRequestDto.getTitle(), boardUpdateRequestDto.getContent());
 		return id;
+	}
+
+	/**
+	 * @param id
+	 * 
+	 * 조회수 증가
+	 */
+	public void updateCount(Long id) {
+		boardRepository.updateCount(id);
 	}
 }

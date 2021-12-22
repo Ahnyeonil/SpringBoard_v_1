@@ -2,6 +2,8 @@ package com.ahn.board;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 
 @SpringBootApplication
 // @SpringBootApplication 역할
@@ -12,6 +14,11 @@ public class SpringBoardV1Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBoardV1Application.class, args);	// 내장 WAS 실행
+	}
+	
+	@Bean
+	public HiddenHttpMethodFilter hiddenHttpMethodFilter(){
+		return new HiddenHttpMethodFilter();
 	}
 
 }

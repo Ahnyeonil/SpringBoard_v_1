@@ -8,7 +8,8 @@
 
 <main class="form-signin" style="max-width: 100%;">
     <div class="container border rounded flex-md-row mb-4 shadow-sm h-md-250">
-        <form>
+        <form method="post">
+        	<input type="hidden" name="_method" value="put">
             <h1 class="h3 m-3 fw-normal">글수정</h1>
             <input type="hidden" id="id" th:value="${board.id}">
             <div class="form-floating m-3">
@@ -19,10 +20,10 @@
                 <textarea class="form-control" th:text="${board.content}" rows="5" id="content" style="height: 450px;"></textarea>
                 <label for="content">내용</label>
             </div>
-
+            <button type="button" class="w-100 btn btn-lg btn-success" id="btn-update" style="max-width: 250px;">수정완료</button>
+			<!-- <a href="#this" class="w-100 btn btn-lg btn-success" id="btn-update" style="max-width: 250px;">수정완료</a> -->
+			<button class="btn btn-secondary" th:onclick="@{/board/{id}(id=${board.id})}" style="position: absolute; top:556px; left:82px;">뒤로</button>
         </form>
-        <button class="w-100 btn btn-lg btn-success" id="btn-update" style="max-width: 250px;">수정완료</button>
-
     </div>
 </main>
 

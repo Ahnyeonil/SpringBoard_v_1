@@ -19,7 +19,7 @@ let index = {
         let data = {
             title: $("#title").val(),
             content: $("#content").val()
-        }
+        };
 
         $.ajax({
             type: "POST",
@@ -36,7 +36,7 @@ let index = {
     },
 
 	deleteById : function () {
-		let id = $("#id").text()
+		let id = $("#id").text();
 		
 		$.ajax({
 			type : "DELETE",
@@ -51,11 +51,12 @@ let index = {
 	},
 	
 	update : function () {
-		let id = {
+		let data = {
 			title : $("#title").val(),
 			content : $("#content").val()
-		}
+		};
 		
+		let id = $("#id").text();
 		$.ajax({
 			type : "PUT",
 			url : "/api/v1/board/" + id,
@@ -63,10 +64,10 @@ let index = {
 			contentType : "application/json; charset=utf-8",
 			dataType : "json"
 		}).done(function (res){
-			alert("글 수정이 완료되었습니다.");
+			alert("게시글이 수정되었습니다.");
 			location.href = "/";
 		}).fail(function (err) {
-			alert(JSON.stringiffy(err));
+			alert(JSON.stringify(err));
 		});
 	}
 }

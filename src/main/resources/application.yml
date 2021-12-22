@@ -1,4 +1,9 @@
 spring:
+  # put / delete 사용
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
   datasource:
     driver-class-name : org.mariadb.jdbc.Driver
     url : jdbc:mariadb://localhost:3306/board?serverTimezone=Asia/Seoul
